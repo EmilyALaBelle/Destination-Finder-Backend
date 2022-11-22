@@ -35,12 +35,11 @@ export async function updateDestination(req, res) {
     console.error(err)
     res.status(500).json({ error: err })
   }
-
 }
 
 
 export async function getSpecificDestination(req, res) {
-  const filter = { "Terrain": "Beaches" }
+  const filter = { "Climate": "Tropical" }
   try {
     const someDestination = await destinationList.find(filter).toArray()
     res.status(200).json(someDestination)
