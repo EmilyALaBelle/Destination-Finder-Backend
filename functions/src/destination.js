@@ -49,6 +49,8 @@ export async function postSpecificDestination(req, res) {
   }
 }
 
+
+
 //Delete that needs more work
 
 // export async function deleteDestination(req, res) {
