@@ -38,3 +38,14 @@ export async function addNewUser(req, res) {
     res.status(500).json({ error: err })
   }
 }
+
+export async function updateUser(req, res) {
+  const { userId } = req.params
+  try {
+    await userList.findOneAndUpdate({_id: new ObjectId(userId) }, {$set: req.body})
+    res.status(200).json(updateUser)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({error: err})
+  }
+}

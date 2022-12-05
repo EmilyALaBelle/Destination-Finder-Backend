@@ -2,7 +2,7 @@ import functions from 'firebase-functions'
 import express from 'express'
 import cors from 'cors'
 import { createNewDestination, getAllDestinations, updateDestination, postSpecificDestination } from './src/destination.js'
-import { addNewUser, userLogin } from './src/user.js'
+import { addNewUser, userLogin, updateUser } from './src/user.js'
 
 const app = express()
 app.use(cors())
@@ -15,5 +15,6 @@ app.post('/destination',  postSpecificDestination)
 //app.delete('destinations/:destinationId', await deleteDestination)
 app.post('/login', userLogin)
 app.post('/signup', addNewUser)
+app.patch('/update/:userId', updateUser)
 
 export const api = functions.https.onRequest(app)
